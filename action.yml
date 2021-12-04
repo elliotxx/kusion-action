@@ -1,15 +1,17 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'go cli action'
+description: 'A github action based on docker and go-cli-prototype'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
-    required: true
-    default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  version:  
+    description: 'Show version info'
+    required: false
+    default: 'false'
+  echo:  
+    description: 'Show echo info'
+    required: false
+    default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.who-to-greet }}
+    - ${{ inputs.version }}
+    - ${{ inputs.echo}}
