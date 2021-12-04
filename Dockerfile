@@ -1,5 +1,5 @@
 # Container image that runs your code
-FROM alpine:3.10
+FROM elliotxx/go-cli-prototype:v0.1.2
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh

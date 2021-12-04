@@ -1,23 +1,17 @@
-# Hello world docker action
+# go cli action prototype
 
-This action prints "Hello World" to the log or "Hello" + the name of a person to greet. To learn how this action was built, see "[Creating a Docker container action](https://help.github.com/en/articles/creating-a-docker-container-action)" in the GitHub Help documentation.
+To learn how this action was built, see "[Creating a Docker container action](https://help.github.com/en/articles/creating-a-docker-container-action)" in the GitHub Help documentation.
 
 ## Inputs
 
-### `who-to-greet`
+### `version`
 
-**Required** The name of the person to greet. Default `"World"`.
-
-## Outputs
-
-### `time`
-
-The time we greeted you.
+**Optional** Show version info. Default `"false"`.
 
 ## Example usage
 
 ```yaml
-uses: actions/hello-world-docker-action@master
+uses: actions/go-cli-action-prototype@main
 with:
-  who-to-greet: 'Mona the Octocat'
+  version: 'true'
 ```
