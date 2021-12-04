@@ -11,7 +11,7 @@ To learn how this action was built, see "[Creating a Docker container action](ht
 ## Example usage
 
 ```yaml
-uses: actions/go-cli-action-prototype@main
+uses: elliotxx/go-cli-action-prototype@main
 with:
   version: 'true'
 ```
