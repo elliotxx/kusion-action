@@ -15,3 +15,6 @@ runs:
   args:
     - ${{ inputs.version }}
     - ${{ inputs.echo}}
+branding:
+  icon: 'check-circle'  
+  color: 'green'
