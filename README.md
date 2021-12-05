@@ -13,6 +13,9 @@ To learn how this action was built, see "[Creating a Docker container action](ht
 ### `version`
 
 **Optional** Show version info. Default `"false"`.
+### `echo`
+
+**Optional** Show echo info. Default `""`.
 
 ## Example usage
 
