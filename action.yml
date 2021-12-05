@@ -1,4 +1,4 @@
-name: 'go cli action'
+name: 'Go cli action prototype'
 description: 'A github action based on docker and go-cli-prototype'
 inputs:
   version:  
