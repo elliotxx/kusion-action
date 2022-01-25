@@ -21,6 +21,14 @@ inputs:
     description: 'KCL files'
     required: false
     default: ''
+  yes:  
+    description: 'Kusion apply --yes'
+    required: false
+    default: 'false'
+  detail:  
+    description: 'Kusion apply --detail'
+    required: false
+    default: 'false'
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -30,6 +38,8 @@ runs:
     - ${{ inputs.settings }}
     - ${{ inputs.arguments }}
     - ${{ inputs.filenames }}
+    - ${{ inputs.yes }}
+    - ${{ inputs.detail }}
 branding:
   icon: 'check-circle'  
   color: 'green'

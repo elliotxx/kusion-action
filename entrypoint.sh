@@ -8,6 +8,8 @@ workDir=$2
 settings=$3
 arguments=$4
 filenames=$5
+yes=$6
+detail=$7
 
 params=$subcommand
 
@@ -24,6 +26,14 @@ if [ "$subcommand" = "apply" ] || [ "$subcommand" = "compile" ]; then
     fi
     if [ -n "$filenames" ]; then
         params="$params $filenames"
+    fi
+    if [ "$subcommand" = "apply" ]; then
+        if [ "$yes" = "true" ]; then
+            params="$params --yes"
+        fi
+        if [ "$detail" = "true" ]; then
+            params="$params --detail"
+        fi
     fi
 fi
 
