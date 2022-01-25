@@ -1,5 +1,5 @@
 # Container image that runs your code
-FROM elliotxx/kusion-open:v0.3.11-6597d314
+FROM elliotxx/kusion-open:v0.3.11-c4c9f377
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
