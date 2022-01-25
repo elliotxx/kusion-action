@@ -4,14 +4,18 @@ set -e
 APP_PATH="/kusion/bin/kusion"
 
 subcommand=$1
-settings=$2
-arguments=$3
-filenames=$4
+workDir=$2
+settings=$3
+arguments=$4
+filenames=$5
 
 params=$subcommand
 
 
 if [ "$subcommand" = "apply" ] || [ "$subcommand" = "compile" ]; then
+    if [ -n "$workDir" ]; then
+        params="$params -w $workDir"
+    fi
     if [ -n "$settings" ]; then
         params="$params -Y $settings"
     fi
