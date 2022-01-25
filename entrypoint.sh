@@ -41,4 +41,6 @@ if [ "$subcommand" = "apply" ] || [ "$subcommand" = "compile" ]; then
     fi
 fi
 
+echo "params: $params"
+
 $APP_PATH $params
