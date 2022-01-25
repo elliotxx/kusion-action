@@ -7,6 +7,6 @@ jobs:
     steps:
       - name: Run action
         id: action
-        uses: elliotxx/go-cli-action-prototype@main
+        uses: elliotxx/kusion-action@main
         with:
-          version: 'true'
+          subcommand: "version"

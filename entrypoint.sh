@@ -1,14 +1,26 @@
 #!/bin/sh -l
 set -e
 
-APP_PATH="/app/go-cli-prototype"
+APP_PATH="/kusion/bin/kusion"
 
-showVersion=$1
-echoInfo=$2
-params=""
+subcommand=$1
+settings=$2
+arguments=$3
+filenames=$4
 
-if [ "$showVersion" = "true" ]; then
-    params="$params -V"
+params=$subcommand
+
+
+if [ "$subcommand" = "apply" ] || [ "$subcommand" = "compile" ]; then
+    if [ -n "$settings" ]; then
+        params="$params -Y $settings"
+    fi
+    if [ -n "$arguments" ]; then
+        params="$params $arguments"
+    fi
+    if [ -n "$filenames" ]; then
+        params="$params $filenames"
+    fi
 fi
 
-$APP_PATH $params $echoInfo
+$APP_PATH $params
