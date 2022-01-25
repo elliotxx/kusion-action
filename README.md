@@ -16,6 +16,11 @@ To learn how this action was built, see "[Creating a Docker container action](ht
 ### `subcommand`
 
 **Required** Kusion subcommand. Default `"apply"`.
+
+### `workDir`
+
+**Optional** work directory. Default `""`.
+
 ### `settings`
 
 **Optional** KCL setting files. Default `""`.
@@ -28,6 +33,14 @@ To learn how this action was built, see "[Creating a Docker container action](ht
 
 **Optional** KCL files. Default `""`.
 
+### `yes`
+
+**Optional** kusion apply --yes. Default `"false"`.
+
+### `detail`
+
+**Optional** kusion apply --detail. Default `"false"`.
+
 ## Example usage
 
 kusion version:
@@ -37,7 +50,7 @@ with:
   subcommand: 'version'
 ```
 
-kusion apply:
+kusion apply with settings:
 ```yaml
 uses: elliotxx/kusion-action@main
 with:
@@ -45,11 +58,41 @@ with:
   settings: 'ci-test/settings.yaml,kcl.yaml'
 ```
 
-kusion apply #2
+kusion apply with workDir:
+```yaml
+uses: elliotxx/kusion-action@main
+with:
+  subcommand: 'apply'
+  workDir: '/root/Konfig/appops/nginx-example'
+  settings: 'ci-test/settings.yaml,kcl.yaml'
+```
+
+
+kusion apply with arguments and filenames:
 ```yaml
 uses: elliotxx/kusion-action@main
 with:
   subcommand: 'apply'
   arguments: '-D cluster=default -D env=prod'
   filenames: 'main.k'
+```
+
+
+kusion apply with yes:
+```yaml
+uses: elliotxx/kusion-action@main
+with:
+  subcommand: 'apply'
+  settings: 'ci-test/settings.yaml,kcl.yaml'
+  yes: 'true'
+```
+
+kusion apply with yes and detail:
+```yaml
+uses: elliotxx/kusion-action@main
+with:
+  subcommand: 'apply'
+  settings: 'ci-test/settings.yaml,kcl.yaml'
+  yes: 'true'
+  detail: 'true'
 ```
