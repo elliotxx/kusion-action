@@ -1,20 +1,30 @@
-name: 'Go cli action prototype'
-description: 'A github action based on docker and go-cli-prototype'
+name: 'Kusion Action'
+description: 'Kusion Action'
 inputs:
-  version:  
-    description: 'Show version info'
+  subcommand:  
+    description: 'kusion subcommand'
+    required: true 
+    default: 'apply'
+  settings:  
+    description: 'KCL setting files'
     required: false
-    default: 'false'
-  echo:  
-    description: 'Show echo info'
+    default: ''
+  arguments:  
+    description: 'KCL arguments'
+    required: false
+    default: ''
+  filenames:  
+    description: 'KCL files'
     required: false
     default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.version }}
-    - ${{ inputs.echo}}
+    - ${{ inputs.subcommand }}
+    - ${{ inputs.settings }}
+    - ${{ inputs.arguments }}
+    - ${{ inputs.filenames }}
 branding:
   icon: 'check-circle'  
   color: 'green'
