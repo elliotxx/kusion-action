@@ -5,6 +5,10 @@ inputs:
     description: 'kusion subcommand'
     required: true 
     default: 'apply'
+  workDir:  
+    description: 'work directory'
+    required: false
+    default: ''
   settings:  
     description: 'KCL setting files'
     required: false
@@ -22,6 +26,7 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.subcommand }}
+    - ${{ inputs.workDir}}
     - ${{ inputs.settings }}
     - ${{ inputs.arguments }}
     - ${{ inputs.filenames }}

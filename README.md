@@ -13,17 +13,43 @@ To learn how this action was built, see "[Creating a Docker container action](ht
 
 ## Inputs
 
-### `version`
+### `subcommand`
 
-**Optional** Show version info. Default `"false"`.
-### `echo`
+**Required** Kusion subcommand. Default `"apply"`.
+### `settings`
 
-**Optional** Show echo info. Default `""`.
+**Optional** KCL setting files. Default `""`.
+
+### `arguments`
+
+**Optional** KCL arguments. Default `""`.
+
+### `filenames`
+
+**Optional** KCL files. Default `""`.
 
 ## Example usage
 
+kusion version:
 ```yaml
 uses: elliotxx/kusion-action@main
 with:
-  version: 'true'
+  subcommand: 'version'
+```
+
+kusion apply:
+```yaml
+uses: elliotxx/kusion-action@main
+with:
+  subcommand: 'apply'
+  settings: 'ci-test/settings.yaml,kcl.yaml'
+```
+
+kusion apply #2
+```yaml
+uses: elliotxx/kusion-action@main
+with:
+  subcommand: 'apply'
+  arguments: '-D cluster=default -D env=prod'
+  filenames: 'main.k'
 ```
