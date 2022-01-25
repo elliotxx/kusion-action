@@ -29,6 +29,10 @@ inputs:
     description: 'Kusion apply --detail'
     required: false
     default: 'false'
+  noStyle:  
+    description: 'Kusion apply --no-style'
+    required: false
+    default: 'true'
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -40,6 +44,7 @@ runs:
     - ${{ inputs.filenames }}
     - ${{ inputs.yes }}
     - ${{ inputs.detail }}
+    - ${{ inputs.noStyle }}
 branding:
   icon: 'check-circle'  
   color: 'green'

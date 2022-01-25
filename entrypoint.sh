@@ -10,6 +10,7 @@ arguments=$4
 filenames=$5
 yes=$6
 detail=$7
+noStyle=$8
 
 params=$subcommand
 
@@ -33,6 +34,9 @@ if [ "$subcommand" = "apply" ] || [ "$subcommand" = "compile" ]; then
         fi
         if [ "$detail" = "true" ]; then
             params="$params --detail"
+        fi
+        if [ "$noStyle" = "true" ]; then
+            params="$params --no-style"
         fi
     fi
 fi

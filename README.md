@@ -41,6 +41,10 @@ To learn how this action was built, see "[Creating a Docker container action](ht
 
 **Optional** kusion apply --detail. Default `"false"`.
 
+### `noStyle`
+
+**Optional** kusion apply --no-style. Default `"true"`.
+
 ## Example usage
 
 kusion version:
