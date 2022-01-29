@@ -3,6 +3,9 @@ set -e
 
 APP_PATH="/kusion/bin/kusion"
 
+echo "kusion version:"
+$APP_PATH version
+
 subcommand=$1
 workDir=$2
 settings=$3
