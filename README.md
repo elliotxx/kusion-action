@@ -45,6 +45,10 @@ To learn how this action was built, see "[Creating a Docker container action](ht
 
 **Optional** kusion apply --no-style. Default `"true"`.
 
+### `dryRun`
+
+**Optional** kusion apply --dry-run. Default `"true"`.
+
 ## Example usage
 
 kusion version:
@@ -52,6 +56,14 @@ kusion version:
 uses: elliotxx/kusion-action@main
 with:
   subcommand: 'version'
+```
+
+kusion apply with dry run:
+```yaml
+uses: elliotxx/kusion-action@main
+with:
+  subcommand: 'apply'
+  dryRun: 'true'
 ```
 
 kusion apply with settings:

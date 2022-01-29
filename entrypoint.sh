@@ -14,6 +14,7 @@ filenames=$5
 yes=$6
 detail=$7
 noStyle=$8
+dryRun=$9
 
 params=$subcommand
 
@@ -40,6 +41,9 @@ if [ "$subcommand" = "apply" ] || [ "$subcommand" = "compile" ]; then
         fi
         if [ "$noStyle" = "true" ]; then
             params="$params --no-style"
+        fi
+        if [ "$dryRun" = "true" ]; then
+            params="$params --dry-run"
         fi
     fi
 fi
