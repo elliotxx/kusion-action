@@ -33,6 +33,10 @@ inputs:
     description: 'Kusion apply --no-style'
     required: false
     default: 'true'
+  dryRun:  
+    description: 'Kusion apply --dry-run'
+    required: false
+    default: 'true'
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -45,6 +49,7 @@ runs:
     - ${{ inputs.yes }}
     - ${{ inputs.detail }}
     - ${{ inputs.noStyle }}
+    - ${{ inputs.dryRun }}
 branding:
   icon: 'check-circle'  
   color: 'green'
