@@ -1,6 +1,10 @@
 name: 'Kusion Action'
 description: 'Kusion Action'
 inputs:
+  diffs:  
+    description: 'diff files'
+    required: false
+    default: ''
   subcommand:  
     description: 'kusion subcommand'
     required: true 
@@ -50,6 +54,7 @@ runs:
     - ${{ inputs.detail }}
     - ${{ inputs.noStyle }}
     - ${{ inputs.dryRun }}
+    - ${{ inputs.diffs }}
 branding:
   icon: 'check-circle'  
   color: 'green'

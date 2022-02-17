@@ -15,14 +15,16 @@ yes=$6
 detail=$7
 noStyle=$8
 dryRun=$9
+diffs=${10}
+
+echo "input diffs: '$diffs'"
 
 params=$subcommand
 
+stacks=$(kclvm diffs_to_stacks.py "${diffs}")
+echo "all stacks: '$stacks'"
 
-if [ "$subcommand" = "apply" ] || [ "$subcommand" = "compile" ]; then
-    if [ -n "$workDir" ]; then
-        params="$params -w $workDir"
-    fi
+if [ ! -n "$stacks" ] && [ "$subcommand" = "apply" ] || [ "$subcommand" = "compile" ]; then
     if [ -n "$settings" ]; then
         params="$params -Y $settings"
     fi
@@ -46,8 +48,18 @@ if [ "$subcommand" = "apply" ] || [ "$subcommand" = "compile" ]; then
             params="$params --dry-run"
         fi
     fi
+
+    if [ -n "$workDir" ]; then
+        params="$params -w $workDir"
+    else
+        echo "common params: $params"
+        echo "foreach stacks:"
+        for stack in $stacks; do
+            echo "current stack is $stack"
+            echo "$APP_PATH $params -w $stack"
+            $APP_PATH $params -w $stack
+        done
+    fi
+
 fi
 
-echo "params: $params"
-
-$APP_PATH $params
