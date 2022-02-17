@@ -59,9 +59,11 @@ if [ "$subcommand" = "apply" ] || [ "$subcommand" = "compile" ]; then
         echo "common params: $params"
         echo "foreach stacks:"
         for stack in $stacks; do
+            echo "---------------- Start -----------------"
             echo "current stack is $stack"
             echo "$APP_PATH $params -w $stack"
             $APP_PATH $params -w $stack
+            echo "----------------- End ------------------"
         done
     fi
 
