@@ -17,14 +17,18 @@ noStyle=$8
 dryRun=$9
 diffs=${10}
 
-echo "input diffs: '$diffs'"
-
 params=$subcommand
 
-stacks=$(kclvm diffs_to_stacks.py "${diffs}")
-echo "all stacks: '$stacks'"
+if [ "$subcommand" = "apply" ] || [ "$subcommand" = "compile" ]; then
+    echo "input diffs: '$diffs'"
+    stacks=$(kclvm /diffs_to_stacks.py "${diffs}")
+    echo "all stacks: '$stacks'"
 
-if [ ! -n "$stacks" ] && [ "$subcommand" = "apply" ] || [ "$subcommand" = "compile" ]; then
+    if [ ! -n "$stacks" ]; then
+        echo "no stacks to $subcommand"
+        exit 0
+    fi 
+
     if [ -n "$settings" ]; then
         params="$params -Y $settings"
     fi
