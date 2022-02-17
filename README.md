@@ -49,6 +49,10 @@ To learn how this action was built, see "[Creating a Docker container action](ht
 
 **Optional** kusion apply --dry-run. Default `"true"`.
 
+### `diffs`
+
+**Optional** diff files. Default `""`.
+
 ## Example usage
 
 kusion version:
