@@ -7,6 +7,7 @@ if __name__ == "__main__":
         diffs = diffs_str.split()
         result = set()
         for cp in diffs:
+            cp = cp.strip("'")
             if not os.path.isdir(cp):
                 cp = os.path.dirname(cp)
             p = os.path.join(cp, "stack.yaml")
